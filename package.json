@@ -1,7 +1,7 @@
 {
   "name": "@cle-does-things/fuseproxy",
   "description": "A lightweight, observable proxy for Anthropic's Messages API.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "Clelia Astra Bertelli",
     "url": "https://github.com/AstraBert"

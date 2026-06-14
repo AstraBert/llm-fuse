@@ -1,5 +1,11 @@
 # @cle-does-things/fuseproxy
 
+## 0.3.2
+
+### Patch Changes
+
+- 637cc9d: Run the API proxy on a custom port, defaulting to 5678 if not specified
+
 ## 0.3.1
 
 ### Patch Changes
