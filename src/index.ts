@@ -26,6 +26,11 @@ program
     "Base URL for Anthropic (or compatible provider)",
     undefined,
   )
+  .option(
+    "-p, --port <number>",
+    "Port on which to serve the FuseProxy server",
+    undefined,
+  )
   .action(async (options) => {
     if (options.key) {
       anthropic.apiKey = options.key;
@@ -33,8 +38,12 @@ program
     if (options.url) {
       anthropic.baseURL = options.url;
     }
+    let port: undefined | number = undefined;
+    if (options.port) {
+      port = parseInt(options.port);
+    }
     try {
-      await runServer();
+      await runServer(port);
     } catch (e) {
       console.error(e);
     }
