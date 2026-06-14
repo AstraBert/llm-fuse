@@ -13,7 +13,7 @@ import { MessagesAPIRequest, MODEL_COSTS } from "./types";
 import { PrefixedLogger } from "./logger";
 
 export const app = express();
-const port = 5678;
+const defaultPort = 5678;
 export const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
@@ -269,9 +269,9 @@ app.post("/v1/messages", async (req, res) => {
   await observeAnthropic();
 });
 
-export async function runServer() {
-  app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
+export async function runServer(port?: number | undefined) {
+  app.listen(port ?? defaultPort, () => {
+    console.log(`App listening on port ${port ?? defaultPort}`);
   });
 
   const logger = new PrefixedLogger("[runServer]");
